@@ -1,0 +1,80 @@
+[ {
+    "name": "Reisinformatie",
+    "headers": [
+        {
+            "name": "Plan je reis",
+            "topics": [
+                {
+                    "name": "Op dit moment",
+                    "links": [
+                        {
+                            "name": "Geen storingen",
+                            "icon": "thumb"
+                        },
+                        {
+                            "name": "6 werkzaamheden",
+                            "icon": "shovel"
+                        }
+
+                    ]
+                },
+                {
+                    "name": "Voorzieningen",
+                    "links": [
+                        "Informatie per station",
+                        "Bagage",
+                        "Reizen met een functiebeperking",
+                        "Alles over voorzieningen"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Onderweg",
+            "topics": [
+                {
+                    "name": "OV-Chipkaart",
+                    "links": [
+                        "In- en uitchecken",
+                        "Saldo laden",
+                        "Samenreiskorting",
+                        "Fiets in de trein",
+                        "Alles over de OV-Chipkaart"
+                    ]
+                },
+                {
+                    "name": "Bijzondere trajecten",
+                    "links": [
+                        "Intercity direct",
+                        "Nachttreinen",
+                        "R-net",
+                        "Alle bijzondere trajecten"
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Vernieuwingen",
+            "topics": [
+                {
+                    "name": "",
+                    "links": [
+                        "Service verbeteren",
+                        "Stationsvernieuwing"
+                    ]
+                }
+            ]
+        }
+
+    ]
+},
+{
+    "name": "Producten",
+    "headers": {}
+},
+{
+    "name": "Uitjes & Deals",
+    "headers": {}
+}
+]

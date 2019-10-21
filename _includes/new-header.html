@@ -1,0 +1,49 @@
+<div class="nb-navbar">
+    <div class="nb-navbar__top">
+        <img class="nb-ns-logo" src="/assets/img/NS_logo.svg" alt="">
+        <ul class="nb-domain">
+            <li>Prive</li>
+            <li>Zakelijk</li>
+            <li>Internationaal</li>
+        </ul>
+        <span class="nb-lang">
+            In English
+        </span>
+    </div>
+    <div class="nb-navbar__bottom">
+        <ul class="nb-menu">
+            {% for item in site.data.menu %}
+                <li>{{item.name}}</li>
+            {% endfor %}
+        </ul>
+        <button class="nb-button">
+            <span class="nb-button__icon"></span>
+            <span class="nb-button__label">Mijn NS</span>
+        </button>
+        <span class="nb-search">
+            <input class="nb-search__input" type="text" >
+            <span class="nb-search__icon">O-</span>
+        </span>
+    </div>
+</div>
+{% for item in site.data.menu %}
+    <h1>{{item.name}}</h1>
+    {% for header in item.headers %}
+        <h2>{{header.name}}</h2>
+        {% for topic in header.topics %}
+            <h3>{{topic.name}}</h3>
+            <ul>
+            {% for link in topic.links %}
+                <li>
+                    {% if link.first %}
+                        <icon class="{{links.icon}}">:D </icon>
+                        {{link.name}}
+                    {% else %}
+                        {{link}}
+                    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        {% endfor%}
+    {% endfor%}
+{% endfor %}

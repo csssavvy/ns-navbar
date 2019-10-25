@@ -43,6 +43,10 @@
     margin-bottom: 0;
     color: $ns-blue;
 
+    &.is-active {
+        color: orange;
+    }
+
     &:first-child {
         margin-left: 0;
     }
@@ -65,6 +69,18 @@
 }
 
 
+
+
+/*
+ * MENU PAGE
+ */
+.nb-menu-page {
+    display:none;
+
+    &.is-active {
+        display: block;
+    }
+}
 
 
 /*

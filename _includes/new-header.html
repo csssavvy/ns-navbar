@@ -12,9 +12,9 @@
             </span>
         </div>
         <div class="nb-navbar__row nb-align-flex-end">
-            <ul class="nb-menu">
+            <ul class="nb-menu js-menu">
                 {% for item in site.data.menu %}
-                    <li class="nb-menu__item"><a class="unlink" href="">{{item.name}}</a></li>
+                    <li class="nb-menu__item js-menu-item" data-page="{{ forloop.index }}"><a class="unlink" href="">{{item.name}}</a></li>
                 {% endfor %}
             </ul>
             <a href="" class="headerLink headerLink--myns">
@@ -27,6 +27,11 @@
         </div>
     </div>
 </header>
+{% for item in site.data.menu %}
+    <div class='nb-menu-page js-menu-pages' data-page="{{forloop.index}}">
+        <span>{{item.name}}</span>
+    </div>
+{% endfor %}
 <!--
 {% for item in site.data.menu %}
     <h1>{{item.name}}</h1>

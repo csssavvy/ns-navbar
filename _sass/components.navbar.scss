@@ -2,27 +2,47 @@
     position: relative;
 }
 
+.nb-ns-logo {
+    svg {
+        width: 76px;
+        fill: $ns-yellow;
+    }
+}
+
+
+
+
+
+/*
+ * NAVBAR
+ */
+.nb-navbar {
+    padding-top: 20px;
+    padding-bottom: 25px;
+    display: flex;
+    flex-direction: column-reverse; // Flip menu to match design but keep desirable DOM-Structure
+}
+
+// Elements
 .nb-navbar__row {
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
 
-    &:not(:last-child) {
-        margin-bottom: 1rem;
+    // if .nb-navbar has column-reverse first-child = last-child
+    &:not(:first-child) {
+        margin-bottom: 25px;
     }
 }
 
-.nb-ns-logo {
-    width: 76px;
-}
+
 
 
 
 /*
  * MENU
  */
-
 .nb-menu {
     display: flex;
     flex-grow: 1;
@@ -36,6 +56,7 @@
 
 // Elements
 .nb-menu__item {
+    position: relative;
     font-weight: bold;
     font-size: 18px;
     margin-left: 40px;
@@ -43,8 +64,17 @@
     margin-bottom: 0;
     color: $ns-blue;
 
-    &.is-active {
-        color: orange;
+    &.is-active, &:hover, &:focus-within {
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            border-radius: 4px;
+            background-color: $ns-yellow;
+        }
     }
 
     &:first-child {
@@ -58,8 +88,11 @@
 
 // Modifiers
 .nb-menu--sub {
+    justify-content: flex-end;
+
     .nb-menu__item {
         font-size: 14px;
+        font-weight: normal;
         margin-left: 24px;
 
         &:first-child {
@@ -83,48 +116,53 @@
 }
 
 
-/*
- * SEARCH
- */
 
-.nb-search {
+
+/*
+ * ROUNDED ITEM
+ */
+.nb-rounded {
     background-color: $ns-grey-8;
     padding: 8px 20px;
     border-radius: 20px;
     display: inline-flex;
     align-items: center;
     flex-direction: row;
-    margin-left: 40px;
 }
 
 // Elements
-.nb-search__input, .nb-search__icon {
+.nb-rounded__item {
+    color: $ns-blue;
+    fill: $ns-blue;
     border:none;
     background-color: transparent;
+
+    &:not(:first-child) {
+        margin-left: 8px;
+    }
 }
 
-.nb-search__icon {
-    fill: $ns-blue;
+// Modifiers
+.nb-rounded--tight {
+    padding-left: 7px;
+    padding-right: 7px;
 }
-
-
 
 
 
 
 
 /*
- * Utilities
+ * UTILITIES
  */
-
-// flex compact
-.nb-flex-compact {
-    flex-basis: auto !important;
-    flex-grow: 0 !important;
-    flex-shrink: 0 !important;
+.nb-u-bold {
+    font-weight: bold !important;
 }
 
-// align flex end
-.nb-align-flex-end {
-    align-items: flex-end !important;
+.nb-u-twist {
+    transform: rotate(90deg)!important;
+}
+
+.nb-u-margin-left {
+    margin-left: 20px;
 }

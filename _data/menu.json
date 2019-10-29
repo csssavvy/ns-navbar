@@ -74,7 +74,12 @@
     "headers": {}
 },
 {
-    "name": "Uitjes & Deals",
+    "name": "Dagje uit & Deals",
+    "headers": {}
+},
+{
+    "name": "Klantenservice",
     "headers": {}
 }
+
 ]

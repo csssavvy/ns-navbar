@@ -1,29 +1,29 @@
 <header class="header nb-header">
     <div class="container header__content nb-navbar">
+        
         <div class="nb-navbar__row">
-            <ul class="nb-menu nb-menu--sub">
-                <li class="nb-menu__item"><a class="unlink" href=""><img class="nb-ns-logo" src="/assets/img/NS_logo.svg" alt=""></a></li>
-                <li class="nb-menu__item"><a class="unlink" href="">Prive</a></li>
-                <li class="nb-menu__item nb-inactive"><a class="unlink" href="">Zakelijk</a></li>
-                <li class="nb-menu__item nb-inactive"><a class="unlink" href="">International</a></li>
-            </ul>
-            <span class="nb-menu nb-menu--sub nb-flex-compact">
-                <span class="nb-menu__item"><a class="unlink" href="">In English</a></li>
-            </span>
-        </div>
-        <div class="nb-navbar__row nb-align-flex-end">
             <ul class="nb-menu js-menu">
+                <li class="nb-menu__item"><a class="unlink nb-ns-logo" href="">{% include icons/logo-ns.svg %}</a></li>
                 {% for item in site.data.menu %}
                     <li class="nb-menu__item js-menu-item" data-page="{{ forloop.index }}"><a class="unlink" href="">{{item.name}}</a></li>
                 {% endfor %}
             </ul>
-            <a href="" class="headerLink headerLink--myns">
-                <span class="headerLink__text">Mijn NS</span>
+            <a href="" class="nb-rounded unlink">
+                <span class="nb-rounded__item">{% include icons/user--small.svg %}</span>
+                <span class="nb-rounded__item nb-u-bold">Mijn NS</span>
+                <span class="nb-rounded__item nb-u-twist">{% include icons/chevron-s--small.svg %}</span>
             </a>
-            <span class="nb-search">
-                <input class="nb-search__input" type="text" placeholder="Zoeken">
-                <button class="nb-search__icon" type="submit">{% include icons/search--small.svg %}</button>
+            <span class="{ nb-rounded nb-rounded--tight } nb-u-margin-left">
+                <!-- <input class="nb-rounded__item" type="text" placeholder="Zoeken"> -->
+                <button class="nb-rounded__item" type="submit">{% include icons/search--small.svg %}</button>
             </span>
+        </div>
+        <div class="nb-navbar__row">
+            <ul class="nb-menu nb-menu--sub">
+                <li class="nb-menu__item "><a class="unlink" href="">Zakelijk</a></li>
+                <li class="nb-menu__item "><a class="unlink" href="">NS International</a></li>
+                <li class="nb-menu__item "><a class="unlink" href="">In English</a></li>
+            </ul>
         </div>
     </div>
 </header>

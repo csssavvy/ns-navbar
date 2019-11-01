@@ -7,15 +7,8 @@
                 {
                     "name": "Op dit moment",
                     "links": [
-                        {
-                            "name": "Geen storingen",
-                            "icon": "thumb"
-                        },
-                        {
-                            "name": "6 werkzaamheden",
-                            "icon": "shovel"
-                        }
-
+                            "Geen storingen",
+                            "6 werkzaamheden"
                     ]
                 },
                 {
@@ -67,7 +60,11 @@
             ]
         }
 
-    ]
+    ],
+    "footer": {
+        "text": "Super cool link",
+        "link": "this link"
+    }
 },
 {
     "name": "Producten",

@@ -1,5 +1,6 @@
 .nb-header {
     position: relative;
+    overflow: visible;
 }
 
 .nb-ns-logo {
@@ -56,7 +57,7 @@
 
 // Elements
 .nb-menu__item {
-    position: relative;
+    // position: relative;
     font-weight: bold;
     font-size: 18px;
     margin-left: 40px;
@@ -66,7 +67,7 @@
 
     &.is-active, &:hover, &:focus-within {
 
-        &:after {
+        > a:after {
             content: '';
             display: block;
             position: absolute;
@@ -102,20 +103,94 @@
 }
 
 
-
+@mixin menuBar($bg-color) {
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100vw;
+        height: 100%;
+        left: 50%;
+        transform:translateX(-50%);
+        background-color: $bg-color;
+    }
+}
 
 /*
  * MENU PAGE
  */
 .nb-menu-page {
-    display:none;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: white;
 
     &.is-active {
         display: block;
     }
+
+    @include menuBar(white);
+}
+// Elements
+.nb-menu-page__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr ;
+    column-gap: 12.5%;
+}
+.nb-menu-page__footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: $ns-grey-8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    @include menuBar($ns-grey-8);
 }
 
 
+
+
+
+/*
+ * SUB MENU
+ */
+.nb-sub-menu {
+    margin: 0;
+    font-size: 16px;
+
+    li, ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+}
+// Elements
+.nb-sub-menu__title {
+    display: block;
+    font-size: 30px;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid $ns-blue;
+}
+.nb-sub-menu__link-list {
+    line-height: 2em;
+}
+.nb-sub-menu .nb-sub-menu__topic-list { //override .nb-sub-menu li/ul
+    margin-bottom: 1rem;
+}
+.nb-sub-menu__sub-title {
+    font-weight: bold;
+}
+.nb-sub-menu__link {
+    font-weight: normal;
+}
 
 
 /*

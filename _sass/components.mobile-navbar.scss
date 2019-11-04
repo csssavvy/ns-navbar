@@ -1,3 +1,6 @@
+/*
+ * MOBILE HEADER
+ */
 .nb-mobile-header {
     display: block;
     z-index: 2;
@@ -8,6 +11,8 @@
     transition-property: transform;
     transition-timing-function: ease-in-out;
     transition-duration: 0.1s;
+    padding: 20px;
+    box-shadow: 0 2px rgba(0,0,0,0.2);
 
     @include sm { // hide from $sm size on
         display: none!important;
@@ -18,7 +23,20 @@
     }
 }
 
+.nb-mobile-top {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    column-gap: 30px;
+
+    .nb-mobile-top__item {
+        box-shadow: none;
+    }
+}
 
 .nb-mobile-main {
     display: none;
+}
+
+.nb-is-hidden {
+    display: none!important;
 }

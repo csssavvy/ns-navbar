@@ -5,29 +5,40 @@
         UP: 'up',
         DOWN: 'down'
     }
-    const MENU_SCROLL_THRESHOLD = 200;
-    const SCROLL_SPEED_THRESHOLD = 
+    const MENU_SCROLL_THRESHOLD = 200; //px value
+    const SCROLL_SPEED_THRESHOLD = 50; //px difference since last measurement;
 
     var toggleMobileMenu = function(){
         const MENU_ELEMENT = document.querySelector('.nb-mobile-header');
+        const SCROLL = getScroll();
         const IS_HIDDEN = MENU_ELEMENT.classList.contains(HIDE_CLASSNAME); 
+        const PAST_SCROLL_THRESHOLD = pastScrollThreshold();
+        const PAST_SPEED_THRESHOLD = pastSpeedThreshold(SCROLL.speed);
         console.log('toggleMobileMenu');
 
-        if(!IS_HIDDEN && pastScrollThreshold() && getScrollDirection() === SCROLL_DIR.DOWN) {
+        if(!IS_HIDDEN && PAST_SCROLL_THRESHOLD && PAST_SPEED_THRESHOLD && SCROLL.direction === SCROLL_DIR.DOWN) {
             MENU_ELEMENT.classList.add(HIDE_CLASSNAME);
+            console.log('hidden');
         } 
-        else if(IS_HIDDEN && (!pastScrollThreshold() || getScrollDirection() === SCROLL_DIR.UP)) {
+        else if(IS_HIDDEN && (PAST_SPEED_THRESHOLD && (SCROLL.direction === SCROLL_DIR.UP)) || !PAST_SCROLL_THRESHOLD) {
             MENU_ELEMENT.classList.remove(HIDE_CLASSNAME);
+            console.log('shown');
         }
     };
 
     var pastScrollThreshold = ()=>getScrollTop() > MENU_SCROLL_THRESHOLD;
+    var pastSpeedThreshold = (speed)=>speed > SCROLL_SPEED_THRESHOLD;
 
-    function getScrollDirection(){
-        let currentScrollTop = getScrollTop();
-        let lastScroll = lastScrollY;
-        lastScrollY = currentScrollTop;
-        return lastScroll < currentScrollTop ? SCROLL_DIR.DOWN : SCROLL_DIR.UP;
+    function getScroll(){
+        const CURRENT_SCROLL_TOP = getScrollTop();
+        const LAST_SCROLL = lastScrollY;
+        lastScrollY = CURRENT_SCROLL_TOP;
+        const SCROLL_DIFF = Math.abs(CURRENT_SCROLL_TOP - LAST_SCROLL);
+
+        return {
+            direction: LAST_SCROLL < CURRENT_SCROLL_TOP ? SCROLL_DIR.DOWN : SCROLL_DIR.UP,
+            speed: SCROLL_DIFF
+        }
     };
 
     function throttle(callback, interval) {

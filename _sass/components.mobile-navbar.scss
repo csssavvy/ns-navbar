@@ -1,0 +1,24 @@
+.nb-mobile-header {
+    display: block;
+    z-index: 2;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    transform: translateY(0);
+    transition-property: transform;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.1s;
+
+    @include sm { // hide from $sm size on
+        display: none!important;
+    }
+
+    &.js-hidden {
+        transform: translateY(-100%);
+    }
+}
+
+
+.nb-mobile-main {
+    display: none;
+}

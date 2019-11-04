@@ -48,7 +48,6 @@
                 <span class="nb-rounded__item nb-u-twist">{% include icons/chevron-s--small.svg %}</span>
             </a>
             <span class="{ nb-rounded nb-rounded--tight } nb-u-margin-left">
-                <!-- <input class="nb-rounded__item" type="text" placeholder="Zoeken"> -->
                 <button class="nb-rounded__item" type="submit">{% include icons/search--small.svg %}</button>
             </span>
         </div>
@@ -61,27 +60,3 @@
         </div>
     </div>
 </header>
-
-<!--
-{% for item in site.data.menu %}
-    <h1>{{item.name}}</h1>
-    {% for header in item.headers %}
-        <h2>{{header.name}}</h2>
-        {% for topic in header.topics %}
-            <h3>{{topic.name}}</h3>
-            <ul>
-            {% for link in topic.links %}
-                <li>
-                    {% if link.first %}
-                        <icon class="{{links.icon}}">:D </icon>
-                        {{link.name}}
-                    {% else %}
-                        {{link}}
-                    {% endif %}
-                </li>
-            {% endfor %}
-            </ul>
-        {% endfor%}
-    {% endfor%}
-{% endfor %}
--->

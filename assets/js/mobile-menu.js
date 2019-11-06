@@ -16,7 +16,10 @@
         const PAST_SPEED_THRESHOLD = pastSpeedThreshold(SCROLL.speed);
         console.log('toggleMobileMenu');
 
-        if(!IS_HIDDEN && PAST_SCROLL_THRESHOLD && PAST_SPEED_THRESHOLD && SCROLL.direction === SCROLL_DIR.DOWN) {
+        if(IS_HIDDEN && !PAST_SCROLL_THRESHOLD) {
+            MENU_ELEMENT.classList.remove(HIDE_CLASSNAME);
+        }
+        else if(!IS_HIDDEN && PAST_SCROLL_THRESHOLD && PAST_SPEED_THRESHOLD && SCROLL.direction === SCROLL_DIR.DOWN) {
             MENU_ELEMENT.classList.add(HIDE_CLASSNAME);
             console.log('hidden');
         } 
@@ -53,12 +56,28 @@
         }
     }
 
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
     function getScrollTop() {
         return document.documentElement.scrollTop || document.body.scrollTop;
     }
 
     function init() {
         window.addEventListener('scroll', throttle(toggleMobileMenu, 200)); 
+        window.addEventListener('scroll', debounce(toggleMobileMenu, 50)); 
     }
 
     window.onload = function() {

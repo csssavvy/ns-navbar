@@ -1,24 +1,35 @@
 <header class="nb-mobile-header">
-    <div class="nb-mobile-top">
-        <a class="nb-mobile-top__item" href="">{% include icons/logo-ns.svg %}</a>
-        <a class="nb-mobile-top__item" href="">{% include icons/user--small.svg %}</a>
-        <a class="nb-mobile-top__item" href="">{% include icons/menu--small.svg %}</a>
-        <a class="nb-mobile-top__item nb-is-hidden" href="">{% include icons/close-m--small.svg %}</a>
+    <div class="nb-mobile-top nb-flex-row">
+        <a class="nb-flex-row__span" href="">{% include icons/logo-ns.svg %}</a>
+        <a href="">{% include icons/user--small.svg %}</a>
+        <a href="">{% include icons/menu--small.svg %}</a>
     </div>
     <div class="nb-mobile-main">
+        <div class='nb-mobile-top nb-flex-row'>
+            <a class="nb-flex-row__span" href="">{% include icons/logo-ns.svg %}</a>
+            <a href="">{% include icons/close-m--small.svg %}</a>
+        </div>
         <div class="nb-mobile-main__body">
             <ul>
-                <li>Reisinformatie<span>></span></li>
+                {% for item in site.data.menu %}
+                <li>
+                    <a class="nb-mobile-link unlink nb-flex-row" href="">
+                        <span class="nb-flex-row__span">{{ item.name }}</span>
+                        <span>{% include icons/chevron-s--small.svg %}</span>
+                    </a>
+                </li>
+                {% endfor %}
             </ul>
-            <div class="buttons">
-                <button>Plan je reis</button>
-                <button>Koop kaartje</button>
+            <div class="nb-flex-row nb-flex-row--sb">
+                <button class="nb-mobile-button">Plan je reis</button>
+                <button class="nb-mobile-button">Koop je kaartje</button>
             </div>
             <ul>
                 <li>Zakelijk</li>
             </ul>
         </div>
-        <div class="nb-mobile-main__footer">
+        <hr class="nb-divider">
+        <div class="nb-mobile-main__footer { nb-flex-row nb-flex-row--sb }">
             <span class="nb-mobile-langs">
                 <a class="nb-mobile-langs__lang" href="">NL</a>
                 <a class="nb-mobile-langs__lang" href="">EN</a>

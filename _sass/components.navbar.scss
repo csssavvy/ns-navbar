@@ -1,0 +1,257 @@
+/*
+ * MIXINS
+ */
+@mixin menuBar($bg-color) {
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100vw;
+        height: 100%;
+        left: 50%;
+        transform:translateX(-50%);
+        background-color: $bg-color;
+    }
+}
+
+
+
+
+
+.nb-header {
+    position: relative;
+    overflow: visible;
+    display: none;
+
+    @include sm {
+        display: block;
+    }
+}
+
+.nb-ns-logo {
+    svg {
+        width: 76px;
+        fill: $ns-yellow;
+    }
+}
+
+
+
+
+
+/*
+ * NAVBAR
+ */
+.nb-navbar {
+    padding-top: 20px;
+    padding-bottom: 25px;
+    display: flex;
+    flex-direction: column-reverse; // Flip menu to match design but keep desirable DOM-Structure
+}
+
+// Elements
+.nb-navbar__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+
+    // if .nb-navbar has column-reverse first-child = last-child
+    &:not(:first-child) {
+        margin-bottom: 25px;
+    }
+}
+
+
+
+
+
+/*
+ * MENU
+ */
+.nb-menu {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: auto;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0; 
+}
+
+// Elements
+.nb-menu__item {
+    // position: relative;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 40px;
+    padding-left: 0;
+    margin-bottom: 0;
+    color: $ns-blue;
+
+    &.is-active, &:hover, &:focus-within {
+
+        > a:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            border-radius: 4px;
+            background-color: $ns-yellow;
+        }
+    }
+
+    &:first-child {
+        margin-left: 0;
+    }
+
+    &.nb-inactive {
+        color: $ns-grey-6;
+    }
+}
+
+// Modifiers
+.nb-menu--sub {
+    justify-content: flex-end;
+
+    .nb-menu__item {
+        font-size: 14px;
+        font-weight: normal;
+        margin-left: 24px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
+
+
+
+
+/*
+ * MENU PAGE
+ */
+.nb-menu-page {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: white;
+
+    &.is-active {
+        display: block;
+    }
+
+    @include menuBar(white);
+}
+// Elements
+.nb-menu-page__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr ;
+    column-gap: 12.5%;
+}
+.nb-menu-page__footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: $ns-grey-8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    @include menuBar($ns-grey-8);
+}
+
+
+
+
+
+/*
+ * SUB MENU
+ */
+.nb-sub-menu {
+    margin: 0;
+    font-size: 16px;
+
+    li, ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+}
+// Elements
+.nb-sub-menu__title {
+    display: block;
+    font-size: 30px;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid $ns-blue;
+}
+.nb-sub-menu__link-list {
+    line-height: 2em;
+}
+.nb-sub-menu .nb-sub-menu__topic-list { //override .nb-sub-menu li/ul
+    margin-bottom: 1rem;
+}
+.nb-sub-menu__sub-title {
+    font-weight: bold;
+}
+.nb-sub-menu__link {
+    font-weight: normal;
+}
+
+
+/*
+ * ROUNDED ITEM
+ */
+.nb-rounded {
+    background-color: $ns-grey-8;
+    padding: 8px 20px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+// Elements
+.nb-rounded__item {
+    color: $ns-blue;
+    fill: $ns-blue;
+    border:none;
+    background-color: transparent;
+
+    &:not(:first-child) {
+        margin-left: 8px;
+    }
+}
+
+// Modifiers
+.nb-rounded--tight {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+
+
+
+
+/*
+ * UTILITIES
+ */
+.nb-u-bold {
+    font-weight: bold !important;
+}
+
+.nb-u-twist {
+    transform: rotate(90deg)!important;
+}
+
+.nb-u-margin-left {
+    margin-left: 20px;
+}

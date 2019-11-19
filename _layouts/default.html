@@ -16,6 +16,7 @@
 
     <!-- LINKS -->
     <link rel="stylesheet" type="text/css" href="/assets/css/ns.generic.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://ns-design.netlify.com/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
     <script src="/assets/js/modernizr.js"></script>
 
@@ -29,12 +30,7 @@
     {% include new-header.html %}
     {% include new-mobile-header.html %}
     <main class="content {{ page.bg }} a a-fi">
-        <!--{{ content }}-->
-        {% include reisplanner.html %}
-        {% include hero.html %}
-        {% include banner-set-1.html %}
-        {% include quicklinks.html %}
-        {% include home-tiles.html %}
+        {{ content }}
     </main>
     {% include footer.html %}
 
@@ -42,7 +38,6 @@
     <script src="/assets/js/ns.generic.min.js"></script>
     <script src="/assets/js/ns.plugins.bundle.min.js"></script>
     <script src="/assets/js/generic.js"></script>
-    <script src="/assets/js/adn.js"></script>
     <script src="/assets/js/menu.js"></script>
     <script src="/assets/js/mobile-menu.js"></script>
 

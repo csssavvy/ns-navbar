@@ -20,7 +20,7 @@ defaults:
       path: ""
     values:
       layout: "default"
-      title: "Display Ads"
+      title: Navbar
   - scope:
       path: ""
       type: "posts"

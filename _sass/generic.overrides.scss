@@ -3,13 +3,8 @@
 -------------------*/
 
 .content {
-    background-color: $ns-grey-7;
-    // margin-top: $navbar-height - 1;
-    // min-height: calc(100vh - 500px);
-}
-
-.header__content {
-    display: block;
+    margin-top: -1px;
+    min-height: calc(100vh - 500px);
 }
 
 .content--footer-light {
@@ -25,14 +20,6 @@
 .tile__content {
     p {
         margin-bottom: 1.25rem;
-    }
-}
-
-.tile__bannerHeading {
-    line-height: $lh-title;
-
-    strong {
-        line-height: $lh-title;
     }
 }
 
@@ -66,4 +53,30 @@ input,
 
 .checkbox__label:before {
     border-radius: 2px;
+}
+
+.overlay__content--cookie {
+    @include sm-max {
+        min-height: calc(100vh - 14px);
+    }
+}
+
+.overlay__body--cookie {
+    padding-bottom: 84px;
+    
+    @include sm {
+        padding-bottom: $gutter;
+    }
+}
+
+.overlay__sticky-bottom {
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 14px);
+    z-index: 999;
+    box-shadow: 0 -1px 0 $ns-grey-alpha-15;
+}
+
+.closeButton:focus {
+    outline: none;
 }

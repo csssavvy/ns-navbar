@@ -2,19 +2,22 @@
     <div class="container header__content nb-navbar">
         
         <div class="nb-navbar__row">
-            <ul class="nb-menu js-menu">
-                <li class="nb-menu__item"><a class="unlink nb-ns-logo" href="">{% include icons/logo-ns.svg %}</a></li>
+            <ul class="nb-menu">
+                <li class="nb-menu__item nb-menu__item--logo">
+                    <a class="unlink nb-ns-logo" href="">{% include icons/logo-ns.svg %}</a>
+                </li>
+
                 {% for item in site.data.menu %}
-                    <li class="nb-menu__item js-menu-item" data-page="{{ forloop.index }}">
-                        <a class="unlink" href="">{{item.name}}</a>
-                        <div class='nb-menu-page js-menu-pages' data-page="{{forloop.index}}">
+                    <li class="nb-menu__item js-nav-item" data-page="{{ forloop.index }}">
+                        <a class="unlink" href="">{{ item.name }}</a>
+                        <div class='nb-menu-page js-nav-pages' data-page="{{forloop.index}}">
                             <div class="nb-menu-page__grid">
-                            {% for header in item.headers%}
+                            {% for header in item.headers %}
                                 <ul class="nb-sub-menu">
                                     <li>
                                         <h3 class="nb-sub-menu__title">{{ header.name }}</h3>
                                         <ul class="nb-sub-menu__link-list">
-                                            {% for topic in header.topics%}
+                                            {% for topic in header.topics %}
                                                 <li>
                                                     {% if topic.name != "" %}
                                                         <h4 class="nb-sub-menu__sub-title">{{ topic.name }}</h4>
@@ -42,6 +45,7 @@
                     </li>
                 {% endfor %}
             </ul>
+
             <a href="" class="nb-rounded unlink">
                 <span class="nb-rounded__item">{% include icons/user--small.svg %}</span>
                 <span class="nb-rounded__item nb-u-bold">Mijn NS</span>
@@ -51,11 +55,12 @@
                 <button class="nb-rounded__item" type="submit">{% include icons/search--small.svg %}</button>
             </span>
         </div>
+        
         <div class="nb-navbar__row">
             <ul class="nb-menu nb-menu--sub">
-                <li class="nb-menu__item "><a class="unlink" href="">Zakelijk</a></li>
-                <li class="nb-menu__item "><a class="unlink" href="">NS International</a></li>
-                <li class="nb-menu__item "><a class="unlink" href="">In English</a></li>
+                <li class="nb-menu__item"><a class="unlink" href="">Zakelijk</a></li>
+                <li class="nb-menu__item"><a class="unlink" href="">NS International</a></li>
+                <li class="nb-menu__item"><a class="unlink" href="">In English</a></li>
             </ul>
         </div>
     </div>

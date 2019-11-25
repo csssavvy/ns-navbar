@@ -139,7 +139,7 @@
 
 .nb-menu__item--logo {
     svg {
-        transition: $fade-all;
+        transition: $fade-link;
     }
 
     &.is-active,
@@ -170,13 +170,13 @@
     width: 100%;
     padding-left: 2rem;
     padding-right: 2rem;
-    background-color: white;
+    background-color: $ns-white;
 
     &.is-active {
         display: block;
     }
 
-    @include menuBar(white);
+    @include menuBar($ns-white);
 }
 
 // Elements
@@ -185,11 +185,12 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     column-gap: 12.5%;
+    margin-top: $gutter;
 }
 
 .nb-menu-page__footer {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
     background-color: $ns-grey-8;
     display: flex;
     justify-content: center;
@@ -221,23 +222,25 @@
 // Elements
 .nb-sub-menu__title {
     display: block;
-    font-size: 30px;
-    padding-bottom: 0.5em;
-    margin-bottom: 0.5em;
+    font-size: toRem(30px);
+    padding-bottom: $half-gutter;
+    margin-bottom: $one-half-gutter;
     border-bottom: 1px solid $ns-blue;
 }
 
 .nb-sub-menu__link-list {
-    line-height: 2em;
+    line-height: 32px;
 }
 
 .nb-sub-menu .nb-sub-menu__topic-list {
     //override .nb-sub-menu li/ul
-    margin-bottom: 1rem;
+    margin-bottom: $one-half-gutter;
 }
 
 .nb-sub-menu__sub-title {
     font-weight: bold;
+    margin-bottom: $quarter-gutter;
+    line-height: 32px;
 }
 
 .nb-sub-menu__link {

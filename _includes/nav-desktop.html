@@ -1,6 +1,6 @@
 <header class="header nb-header">
     <div class="container header__content nb-navbar">
-        
+
         <div class="nb-navbar__row">
             <ul class="nb-menu">
                 <li class="nb-menu__item nb-menu__item--logo">
@@ -8,41 +8,43 @@
                 </li>
 
                 {% for item in site.data.menu %}
-                    <li class="nb-menu__item js-nav-item" data-page="{{ forloop.index }}">
-                        <a class="unlink" href="">{{ item.name }}</a>
-                        <div class='nb-menu-page js-nav-pages' data-page="{{forloop.index}}">
-                            <div class="nb-menu-page__grid">
+                <li class="nb-menu__item js-nav-item" data-page="{{ forloop.index }}">
+                    <a class="unlink" href="">{{ item.name }}</a>
+                    <div class='nb-menu-page js-nav-pages' data-page="{{ forloop.index }}">
+
+                        <div class="nb-menu-page__grid">
                             {% for header in item.headers %}
-                                <ul class="nb-sub-menu">
-                                    <li>
-                                        <h3 class="nb-sub-menu__title">{{ header.name }}</h3>
-                                        <ul class="nb-sub-menu__link-list">
-                                            {% for topic in header.topics %}
-                                                <li>
-                                                    {% if topic.name != "" %}
-                                                        <h4 class="nb-sub-menu__sub-title">{{ topic.name }}</h4>
-                                                    {% endif %}
-                                                    <ul class='nb-sub-menu__topic-list'>
-                                                        {% for link in topic.links %}
-                                                            <li><a class="nb-sub-menu__link unlink" href="">{{link}}</a></li>
-                                                        {% endfor%}
-                                                    </ul>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </li>
-                                </ul>
+                            <ul class="nb-sub-menu">
+                                <li>
+                                    <h3 class="nb-sub-menu__title">{{ header.name }}</h3>
+                                    <ul class="nb-sub-menu__link-list">
+                                        {% for topic in header.topics %}
+                                        <li>
+                                            {% if topic.name != "" %}
+                                            <h4 class="nb-sub-menu__sub-title">{{ topic.name }}</h4>
+                                            {% endif %}
+                                            <ul class='nb-sub-menu__topic-list'>
+                                                {% for link in topic.links %}
+                                                <li><a class="nb-sub-menu__link unlink" href="">{{link}}</a></li>
+                                                {% endfor%}
+                                            </ul>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            </ul>
                             {% endfor %}
-                            </div>
-                            {% if item.footer %}
-                            <div class='nb-menu-page__footer'>
-                                <img src="http://placehold.it/50x50" alt="">
-                                <h3>{{item.footer.text}}</h3>
-                                <a class="unlink" href="">{{item.footer.link}}</a>
-                            </div>
-                            {% endif %}
                         </div>
-                    </li>
+
+                        {% if item.footer %}
+                        <div class='nb-menu-page__footer'>
+                            <span class="svg-blue pos-r">{% include icons/amsterdam--large.svg %}</span>
+                            <h3 class="pos-r top-min-1px ml-3">{{ item.footer.text }}</h3>
+                            <a class="arrowLink fw-normal ml-3" href="">{{ item.footer.link }}</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </li>
                 {% endfor %}
             </ul>
 
@@ -55,7 +57,7 @@
                 <button class="nb-rounded__item" type="submit">{% include icons/search--small.svg %}</button>
             </span>
         </div>
-        
+
         <div class="nb-navbar__row">
             <ul class="nb-menu nb-menu--sub">
                 <li class="nb-menu__item"><a class="unlink" href="">Zakelijk</a></li>

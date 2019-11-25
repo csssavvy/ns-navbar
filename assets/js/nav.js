@@ -13,8 +13,8 @@ const navDesktop = () => {
     }
 
     const resetActives = () => {
-        navItems.map(el => {removeActive(el)});
-        navPages.map(el => {removeActive(el)});
+        navItems.map(el => removeActive(el));
+        navPages.map(el => removeActive(el));
     }
 
     navItems.map(el => {

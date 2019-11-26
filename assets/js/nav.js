@@ -6,6 +6,7 @@ const navMobile = () => {
     const item = '[data-nav="item"]';
 
     const tl = gsap.timeline({
+        paused: true,
         defaults: {
             ease: "power3.inOut",
         }
@@ -22,7 +23,7 @@ const navMobile = () => {
         stagger: 0.04,
         opacity: 1,
         y: 0,
-    }, '<0').pause();
+    }, '<0');
 
     toggle.onclick = () => {
         if (!toggle.classList.contains(activeClass)) {

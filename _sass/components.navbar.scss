@@ -23,15 +23,17 @@
     overflow: visible;
     display: none;
 
-    @include sm {
+    @include md {
         display: block;
     }
 }
 
-.nb-ns-logo {
-    svg {
-        width: 76px;
-        fill: $ns-yellow;
+.nb-header-mobile {
+    height: $navbar-height;
+    background: $ns-white;
+
+    @include md {
+        display: none;
     }
 }
 
@@ -83,12 +85,17 @@
 // Elements
 .nb-menu__item {
     font-weight: bold;
-    font-size: 18px;
-    margin-left: 40px;
+    font-size: toRem(16px);
+    margin-left: 28px;
     padding-left: 0;
     margin-bottom: 0;
     color: $ns-blue;
     cursor: pointer;
+
+    @include lg {
+        font-size: toRem(18px);
+        margin-left: 40px;
+    }
 
     >a:after {
         content: '';
@@ -138,7 +145,11 @@
 }
 
 .nb-menu__item--logo {
+    flex: 0 0 76px;
+
     svg {
+        width: 76px;
+        fill: $ns-yellow;
         transition: $fade-link;
     }
 
@@ -146,7 +157,7 @@
     &:hover,
     &:focus-within {
         svg {
-            fill: $ns-blue;
+            fill: $ns-yellow-2;
         }
 
         >a:after {
@@ -222,8 +233,9 @@
 // Elements
 .nb-sub-menu__title {
     display: block;
-    font-size: toRem(30px);
-    padding-bottom: $half-gutter;
+    font-size: toRem(28px);
+    letter-spacing: $ls-heading;
+    padding-bottom: 10px;
     margin-bottom: $one-half-gutter;
     border-bottom: 1px solid $ns-blue;
 }

@@ -4,7 +4,7 @@
         <div class="nb-navbar__row">
             <ul class="nb-menu">
                 <li class="nb-menu__item nb-menu__item--logo">
-                    <a class="unlink nb-ns-logo" href="">{% include icons/logo-ns.svg %}</a>
+                    <a class="unlink" href="">{% include icons/logo-ns.svg %}</a>
                 </li>
 
                 {% for item in site.data.menu %}
@@ -39,8 +39,8 @@
                         {% if item.footer %}
                         <div class='nb-menu-page__footer'>
                             <span class="svg-blue pos-r">{% include icons/amsterdam--large.svg %}</span>
-                            <h3 class="pos-r top-min-1px ml-3">{{ item.footer.text }}</h3>
-                            <a class="arrowLink fw-normal ml-3" href="">{{ item.footer.link }}</a>
+                            <h3 class="ml-3">{{ item.footer.text }}</h3>
+                            <a class="f16 arrowLink fw-normal ml-3" href="">{{ item.footer.link }}</a>
                         </div>
                         {% endif %}
                     </div>
@@ -50,7 +50,7 @@
 
             <a href="" class="nb-rounded unlink">
                 <span class="nb-rounded__item">{% include icons/user--small.svg %}</span>
-                <span class="nb-rounded__item nb-u-bold">Mijn NS</span>
+                <span class="nb-rounded__item nb-u-bold visible-lg">Mijn NS</span>
                 <span class="nb-rounded__item nb-u-twist">{% include icons/chevron-s--small.svg %}</span>
             </a>
             <span class="{ nb-rounded nb-rounded--tight } nb-u-margin-left">

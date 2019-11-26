@@ -1,17 +1,28 @@
 .nb-mobile {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    z-index: 500;
-    background-color: $ns-white;
+    position: absolute;
+    top: 0;
+    width: 100%;
     height: $navbar-height;
     padding: 0 21px;
+    z-index: 500;
+    background-color: $ns-white;
     box-shadow: $box-shadow-navbar;
+    transition: all 200ms $ease-quint;
 
     @include md {
         display: none;
     }
+
+    &.is-active {
+        height: 100vh;
+    }
+}
+
+.nb-mobile__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $navbar-height;
 }
 
 .nb-mobile__logo {
@@ -21,6 +32,9 @@
     }
 }
 
+
+// navigation
+// ------------------------------------
 .nb-mobile-nav {
     display: flex;
     align-items: center;
@@ -44,13 +58,60 @@
 
 
 
-// Hamburger menu icon
+// menu
+// ------------------------------------
+.nb-mobile-menu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: $gutter 0 0 0;
+
+    &.is-active {
+        display: block;
+    }
+}
+
+.nb-mobile-menu__item {
+    display: grid;
+    grid-template-columns: 35px 1fr max-content;
+    grid-column-gap: $half-gutter;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    @include font(18px, bold, $lh-copy);
+    color: $ns-blue;
+
+    &:not(:last-child) {
+        margin-bottom: 24px;
+    }
+
+    svg {
+        fill: $ns-blue;
+    }
+}
+
+.nb-mobile-menu__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nb-mobile-menu__chevron {
+    margin-right: 9px;
+}
+
+
+
+// hamburger menu icon
 // ----------------------------------
 .nb-mobile-icon {
     position: relative;
     width: 21px;
     height: 16px;
     cursor: pointer;
+    outline: none;
+    border: none;
+    background: none;
 
     &__line {
         display: block;
@@ -65,7 +126,7 @@
     }
 
     &__line:last-child {
-        width: 50%;
+        width: 60%;
     }
 
     @for $i from 1 through 4 {
@@ -73,6 +134,14 @@
             top: ($i - 1) * 5px;
             transform-origin: left center;
         }
+    }
+
+    &:focus,
+    &:focus-within,
+    &:active,
+    &:hover {
+        outline: none;
+        border: none;
     }
 
     &.is-active {
@@ -90,7 +159,7 @@
 
         >.nb-mobile-icon__line:nth-child(3) {
             width: 0;
-            opacity: 0%;
+            opacity: 0;
         }
 
         >.nb-mobile-icon__line:nth-child(4) {

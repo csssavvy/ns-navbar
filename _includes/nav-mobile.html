@@ -1,18 +1,31 @@
-<header class="nb-mobile">
-    <figure class="nb-mobile__logo">
-        <a class="unlink" href="/">{% include icons/logo-ns.svg %}</a>
-    </figure>
-    <ul class="nb-mobile-nav">
-        <li class="nb-mobile-nav__item">
-            <a class="unlink" href="">{% include icons/user--small.svg %}</a>
+<header class="nb-mobile" data-nav="navigation">
+    <nav class="nb-mobile__container">
+        <figure class="nb-mobile__logo">
+            <a class="unlink" href="/">{% include icons/logo-ns.svg %}</a>
+        </figure>
+        <ul class="nb-mobile-nav">
+            <li class="nb-mobile-nav__item">
+                <a class="unlink" href="">{% include icons/user--small.svg %}</a>
+            </li>
+            <li class="nb-mobile-nav__item">
+                <button class="nb-mobile-icon" data-nav="toggle">
+                    <span class="nb-mobile-icon__line"></span>
+                    <span class="nb-mobile-icon__line"></span>
+                    <span class="nb-mobile-icon__line"></span>
+                    <span class="nb-mobile-icon__line"></span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <ul class="nb-mobile-menu" data-nav="menu">
+        {% for entry in site.data.menu-mobile.headers %}
+        <li class="nb-mobile-menu__item" data-nav="item">
+            <span class="nb-mobile-menu__icon">{% include {{ entry.icon }} %}</span>
+            <span>{{ entry.title }}</span>
+            {% unless entry.no-chevron %}
+            <span class="nb-mobile-menu__chevron">{% include icons/chevron-m--small.svg %}</span>
+            {% endunless %}
         </li>
-        <li class="nb-mobile-nav__item">
-            <button class="nb-mobile-icon js-toggle">
-                <span class="nb-mobile-icon__line"></span>
-                <span class="nb-mobile-icon__line"></span>
-                <span class="nb-mobile-icon__line"></span>
-                <span class="nb-mobile-icon__line"></span>
-            </button>
-        </li>
+        {% endfor %}
     </ul>
 </header>

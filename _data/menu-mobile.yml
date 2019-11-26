@@ -1,0 +1,14 @@
+headers:
+  - title: Reisinformatie
+    icon: icons/clock-m--small.svg
+  - title: Kaartjes en toeslagen
+    icon: icons/ticket--small.svg
+  - title: Abonnementen
+    icon: icons/subscription--small.svg
+  - title: Deur-tot-deur
+    icon: icons/bike--small.svg
+  - title: Uitjes & deals
+    icon: icons/elephant--small.svg
+  - title: Klantenservice
+    icon: icons/info--small.svg
+    no-chevron: true

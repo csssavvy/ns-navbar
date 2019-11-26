@@ -5,8 +5,12 @@
 .content {
     position: relative;
     top: -1px;
-    margin-top: 0;
+    margin-top: $navbar-height;
     min-height: calc(100vh - 500px);
+
+    @include md {
+        margin-top: 0;
+    }
 }
 
 .content--footer-light {

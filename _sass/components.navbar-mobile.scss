@@ -1,0 +1,103 @@
+.nb-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 500;
+    background-color: $ns-white;
+    height: $navbar-height;
+    padding: 0 21px;
+    box-shadow: $box-shadow-navbar;
+
+    @include md {
+        display: none;
+    }
+}
+
+.nb-mobile__logo {
+    svg {
+        fill: $ns-yellow;
+        width: 64px;
+    }
+}
+
+.nb-mobile-nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nb-mobile-nav__item {
+    margin: 0;
+    padding: 0;
+
+    &:not(:first-of-type) {
+        margin-left: $gutter;
+    }
+
+    svg {
+        fill: $ns-blue;
+    }
+}
+
+
+
+// Hamburger menu icon
+// ----------------------------------
+.nb-mobile-icon {
+    position: relative;
+    width: 21px;
+    height: 16px;
+    cursor: pointer;
+
+    &__line {
+        display: block;
+        position: absolute;
+        height: 1px;
+        left: 0;
+        width: 100%;
+        background: $ns-blue;
+        opacity: 1;
+        transform: rotate(0deg);
+        transition: $fade-all;
+    }
+
+    &__line:last-child {
+        width: 50%;
+    }
+
+    @for $i from 1 through 4 {
+        &__line:nth-child(#{$i}) {
+            top: ($i - 1) * 5px;
+            transform-origin: left center;
+        }
+    }
+
+    &.is-active {
+        >.nb-mobile-icon__line:nth-child(1) {
+            transform: rotate(45deg);
+            width: 23px;
+            top: 0;
+            left: 0;
+        }
+
+        >.nb-mobile-icon__line:nth-child(2) {
+            width: 0;
+            opacity: 0;
+        }
+
+        >.nb-mobile-icon__line:nth-child(3) {
+            width: 0;
+            opacity: 0%;
+        }
+
+        >.nb-mobile-icon__line:nth-child(4) {
+            transform: rotate(-45deg);
+            top: 16px;
+            width: 23px;
+            left: 0;
+        }
+    }
+}

@@ -1,7 +1,18 @@
-<header class="nb-header-mobile">
-    <ul class="nb-menu">
-        <li class="nb-menu__item nb-menu__item--logo">
-            <a class="unlink nb-ns-logo" href="">{% include icons/logo-ns.svg %}</a>
+<header class="nb-mobile">
+    <figure class="nb-mobile__logo">
+        <a class="unlink" href="/">{% include icons/logo-ns.svg %}</a>
+    </figure>
+    <ul class="nb-mobile-nav">
+        <li class="nb-mobile-nav__item">
+            <a class="unlink" href="">{% include icons/user--small.svg %}</a>
+        </li>
+        <li class="nb-mobile-nav__item">
+            <button class="nb-mobile-icon js-toggle">
+                <span class="nb-mobile-icon__line"></span>
+                <span class="nb-mobile-icon__line"></span>
+                <span class="nb-mobile-icon__line"></span>
+                <span class="nb-mobile-icon__line"></span>
+            </button>
         </li>
     </ul>
 </header>

@@ -22,18 +22,12 @@
     position: relative;
     overflow: visible;
     display: none;
+    z-index: 500;
+    background-color: $ns-white;
+    box-shadow: $box-shadow-navbar;
 
     @include md {
         display: block;
-    }
-}
-
-.nb-header-mobile {
-    height: $navbar-height;
-    background: $ns-white;
-
-    @include md {
-        display: none;
     }
 }
 
@@ -148,7 +142,7 @@
     flex: 0 0 76px;
 
     svg {
-        width: 76px;
+        width: 100%;
         fill: $ns-yellow;
         transition: $fade-link;
     }

@@ -3,7 +3,9 @@
 -------------------*/
 
 .content {
-    margin-top: -1px;
+    position: relative;
+    top: -1px;
+    margin-top: 0;
     min-height: calc(100vh - 500px);
 }
 
@@ -55,6 +57,12 @@ input,
     border-radius: 2px;
 }
 
+.filterLanding__intro {
+    @include md {
+        background-image: url('/assets/img/dagje-uit/dagjeuit_wandelinglanding.svg');
+    }
+}
+
 .overlay__content--cookie {
     @include sm-max {
         min-height: calc(100vh - 14px);
@@ -63,7 +71,7 @@ input,
 
 .overlay__body--cookie {
     padding-bottom: 84px;
-    
+
     @include sm {
         padding-bottom: $gutter;
     }

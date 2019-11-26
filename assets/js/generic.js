@@ -177,3 +177,28 @@ document.addEventListener('DOMContentLoaded', () => {
     revealOnScroll();
     videoReveal();
 });
+
+// body scroll lock object
+// ------------------------------------------------------------
+const bodyScroll = {
+    body: document.querySelector('body'),
+    main: document.querySelector('main'),
+    scrollPos: 0,
+
+    lock() {
+        this.scrollPos = window.scrollY;
+        this.body.style.position = 'fixed';
+        this.body.style.top = -this.scrollPos + 'px';
+        this.body.style.overflowY = 'hidden';
+        this.body.style.width = '100%';
+        this.body.style.backfaceVisibility = 'hidden';
+    },
+    unlock() {
+        this.body.removeAttribute('style');
+        this.main.removeAttribute('style');
+        window.scrollTo({
+            top: this.scrollPos,
+        });
+    }
+}
+Object.seal(bodyScroll);

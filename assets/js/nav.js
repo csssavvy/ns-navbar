@@ -25,7 +25,13 @@ const navMobile = () => {
     }, '<0').pause();
 
     toggle.onclick = () => {
-        toggle.classList.contains(activeClass) ? tl.timeScale(-2) : tl.play().timeScale(1);
+        if (!toggle.classList.contains(activeClass)) {
+            bodyScroll.lock();
+            tl.play().timeScale(1);
+        } else {
+            bodyScroll.unlock();
+            tl.timeScale(-2);
+        }
         toggle.classList.toggle(activeClass);
     }
 }

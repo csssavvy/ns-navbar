@@ -7,14 +7,9 @@
     z-index: 500;
     background-color: $ns-white;
     box-shadow: $box-shadow-navbar;
-    transition: all 200ms $ease-quint;
 
     @include md {
         display: none;
-    }
-
-    &.is-active {
-        height: 100vh;
     }
 }
 
@@ -61,14 +56,9 @@
 // menu
 // ------------------------------------
 .nb-mobile-menu {
-    display: none;
     list-style: none;
     margin: 0;
     padding: $gutter 0 0 0;
-
-    &.is-active {
-        display: block;
-    }
 }
 
 .nb-mobile-menu__item {

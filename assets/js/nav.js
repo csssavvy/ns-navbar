@@ -7,35 +7,26 @@ const navMobile = () => {
 
     const tl = gsap.timeline({
         defaults: {
-            paused: true,
             ease: "power3.inOut",
         }
+    }).set(menu, {
+        display: 'block',
+    }).to(nav, {
+        duration: 0.15,
+        height: '100vh',
     }).fromTo(item, {
-        opacity: 0
+        opacity: 0,
+        y: -8,
     }, {
-        duration: 0.5,
-        stagger: 0.07,
-        opacity: 1
-    });
+        duration: 0.3,
+        stagger: 0.04,
+        opacity: 1,
+        y: 0,
+    }, '<0').pause();
 
     toggle.onclick = () => {
-        nav.classList.toggle(activeClass);
+        toggle.classList.contains(activeClass) ? tl.timeScale(-2) : tl.play().timeScale(1);
         toggle.classList.toggle(activeClass);
-        menu.classList.toggle(activeClass);
-
-        const tl = gsap.timeline({
-            defaults: {
-                ease: "power3.inOut",
-            }
-        }).fromTo(item, {
-            opacity: 0,
-            y: -10,
-        }, {
-            duration: 0.3,
-            stagger: 0.04,
-            opacity: 1,
-            y: 0,
-        });
     }
 }
 
